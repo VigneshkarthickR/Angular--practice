@@ -1,0 +1,41 @@
+
+<div class="container">
+   
+        <app-primary-card  [head]="'Primary'" [color]="'Green'" (buttonClick)="handleData($event)" ></app-primary-card>
+        <app-primary-card [head]="'Danger'" [color]="'Red'" (buttonClick)="handleData($event)"></app-primary-card>
+        <app-primary-card [head]="'Secoundary'" [color]="'Yellow'" (buttonClick)="handleData($event)"></app-primary-card>
+
+        {{title}}
+  
+     <div style="display: flex; flex-direction: column; width: 15%; gap: 10px; border: 2px solid red; padding:10px; border-radius: 10px;">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+        <label>User Name</label>  
+        <input  formControlName="userName"/>
+        <div *ngIf="loginForm.get('userName')?.errors&&loginForm.get('userName')?.touched" class="error-message">
+          User Name is required
+        </div>
+        </div>
+      
+        <div class="form-group">
+        <label>Password</label>
+        <input  formControlName="password"/>
+        <div *ngIf="loginForm.get('password')?.errors&&loginForm.get('userName')?.touched" class="error-message">
+          Password is required
+        </div>
+        </div>
+
+        <button style="padding: 10px; border-radius: 12px; cursor: pointer; border: none; background-color: rgb(182, 214, 134);" type="submit"> submit</button>
+      </form>
+    </div>
+    <ng-component>
+      
+    </ng-component>
+  </div>
+<div>
+
+
+
+
+
+

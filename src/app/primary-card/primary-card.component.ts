@@ -19,7 +19,4 @@ export class PrimaryCardComponent {
     this.buttonClick.emit(this.head);
     this.wordsLength=this.commonserv.wordsCount(this.head)
   }
-
-
-
 }

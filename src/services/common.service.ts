@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,14 +6,16 @@ import { Injectable } from '@angular/core';
 })
 export class CommonService {
 
-  constructor() { }
+  constructor(private _http:HttpClient) { }
  
-  wordsCount(data:any){
+  public wordsCount(data:string){
     return data.length
   }
 
+  public getUsers(){
+   const data= this._http.get("https://jsonplaceholder.typicode.com/users")
+   return data
+  }
 
-  
-
-  
+ 
 }

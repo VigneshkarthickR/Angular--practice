@@ -6,6 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { CommonService } from 'src/services/common.service';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  constructor(private http: HttpClient, private formBuilder: FormBuilder) {}
+  constructor(private service:CommonService, private formBuilder: FormBuilder) {}
 
   title!: string;
   getUsers: any;
@@ -24,6 +25,9 @@ export class AppComponent implements OnInit {
       userName: new FormControl(null, Validators.required),
       password: new FormControl(null, Validators.required),
     });
+    this.service.getUsers().subscribe(data=>{
+      this.getUsers= data
+    })
   }
 
   handleData(data: string) {

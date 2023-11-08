@@ -28,9 +28,11 @@
         <button style="padding: 10px; border-radius: 12px; cursor: pointer; border: none; background-color: rgb(182, 214, 134);" type="submit"> submit</button>
       </form>
     </div>
-    <ng-component>
-      
-    </ng-component>
+
+    <div *ngFor="let user of getUsers">
+      <p> name: {{ user.name }}</p>
+      <p> email: {{ user.email }}</p>
+    </div>
   </div>
 <div>
 
